@@ -1,37 +1,17 @@
 -----------------------------------
 -- Area: North Gustaberg
---  MOB: Maneating Hornet
+--  Mob: Maneating Hornet
 -- Note: Place Holder For Stinging Sophie
 -----------------------------------
-
-require("scripts/zones/North_Gustaberg/MobIDs");
-require("scripts/globals/fieldsofvalor");
-
------------------------------------
--- onMobDeath
+local ID = require("scripts/zones/North_Gustaberg/IDs")
+require("scripts/globals/regimes")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
-    checkRegime(player,mob,17,1);
-
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
+    dsp.regime.checkRegime(player, mob, 17, 1, dsp.regime.type.FIELDS)
+end
 
 function onMobDespawn(mob)
-    local mobID = mob:getID();
-
-    if (Stinging_Sophie_PH[mobID] ~= nil) then
-        local ToD = GetServerVariable("[POP]Stinging_Sophie");
-        if (ToD <= os.time(t) and GetMobAction(Stinging_Sophie) == 0) then
-            if (math.random(1,20) == 5) then
-                UpdateNMSpawnPoint(Stinging_Sophie);
-                GetMobByID(Stinging_Sophie):setRespawnTime(GetMobRespawnTime(mobID));
-                SetServerVariable("[PH]Stinging_Sophie", mobID);
-                DeterMob(mobID, true);
-            end
-        end
-    end
-end;
+    dsp.mob.phOnDespawn(mob, ID.mob.STINGING_SOPHIE_PH, 5, math.random(1200, 3600)) -- 20 to 60 minutes
+end

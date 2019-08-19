@@ -3,24 +3,14 @@
 -- Zone: Rabao (247)
 --
 -----------------------------------
-package.loaded["scripts/zones/Rabao/TextIDs"] = nil;
------------------------------------
-
-require("scripts/globals/settings");
-require("scripts/zones/Rabao/TextIDs");
-
------------------------------------
--- onInitialize
+local ID = require("scripts/zones/Rabao/IDs")
+require("scripts/globals/conquest")
+require("scripts/globals/chocobo")
 -----------------------------------
 
 function onInitialize(zone)
-    local vwnpc = {17789008,17789012};
-    SetVoidwatchNPC(vwnpc);
+    dsp.chocobo.initZone(zone)
 end;
-
------------------------------------
--- onZoneIn
------------------------------------
 
 function onZoneIn(player,prevZone)
     local cs = -1;
@@ -30,39 +20,15 @@ function onZoneIn(player,prevZone)
     return cs;
 end;
 
------------------------------------
--- onConquestUpdate
------------------------------------
-
 function onConquestUpdate(zone, updatetype)
-    local players = zone:getPlayers();
-
-    for name, player in pairs(players) do
-        conquestUpdate(zone, player, updatetype, CONQUEST_BASE);
-    end
+    dsp.conq.onConquestUpdate(zone, updatetype)
 end;
-
------------------------------------
--- onRegionEnter
------------------------------------
 
 function onRegionEnter(player,region)
 end;
 
------------------------------------
--- onEventUpdate
------------------------------------
-
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
 end;

@@ -1,18 +1,10 @@
 -----------------------------------
 -- Area: Castle Zvahl Baileys (161)
---   NM: Marquis_Amon
------------------------------------
-
------------------------------------
--- onMobDeath
+--   NM: Marquis Amon
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
 end;
-
------------------------------------
--- onMobDespawn
------------------------------------
 
 function onMobDespawn(mob)
 
@@ -21,4 +13,3 @@ function onMobDespawn(mob)
     mob:setRespawnTime(math.random(75600,86400));
 
 end;
-

@@ -1,14 +1,15 @@
 -----------------------------------
 -- Area: Gustav Tunnel
---  MOB: Pygmytoise
+--  Mob: Pygmytoise
+-----------------------------------
+require("scripts/globals/regimes")
+require("scripts/globals/status")
 -----------------------------------
 
-require("scripts/globals/groundsofvalor");
-
------------------------------------
--- onMobDeath
------------------------------------
+function onMobInitialize(mob)
+    mob:setMod(dsp.mod.DMGMAGIC, -50) -- "Highly resistant to magic damage"
+end
 
 function onMobDeath(mob, player, isKiller)
-    checkGoVregime(player,mob,770,2);
+    dsp.regime.checkRegime(player, mob, 770, 2, dsp.regime.type.GROUNDS)
 end;

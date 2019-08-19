@@ -1,35 +1,8 @@
 -----------------------------------
 -- Area: Attohwa Chasm
---  MOB: Executioner Antlion
+--  Mob: Executioner Antlion
 -----------------------------------
-
-require("scripts/globals/status");
-mixins = {require("scripts/mixins/families/antlion_ambush")}
-
------------------------------------
--- onMobInitialize Action
------------------------------------
-
-function onMobInitialize(mob)
-end;
-
-
------------------------------------
--- onMobSpawn Action
------------------------------------
-
-function onMobSpawn(mob)
-end;
-
------------------------------------
--- onMobEngaged
------------------------------------
-
-function onMobEngaged(mob, target)
-end;
-
------------------------------------
--- onMobDeath
+mixins = {require("scripts/mixins/families/antlion_ambush_noaggro")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

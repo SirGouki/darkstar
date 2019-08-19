@@ -1,31 +1,27 @@
 -----------------------------------
 -- Area: Ranguemont Pass
---  NM:  Taisaijin
+--   NM: Taisaijin
 -----------------------------------
-
+local ID = require("scripts/zones/Ranguemont_Pass/IDs");
 require("scripts/globals/titles");
-
------------------------------------
--- onMobDeath
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
-    player:addTitle(BYEBYE_TAISAI);
+    player:addTitle(dsp.title.BYEBYE_TAISAI);
 end;
 
------------------------------------
--- onMobDespawn
------------------------------------
-
 function onMobDespawn(mob)
+    local phIndex = mob:getLocalVar("phIndex");
+    local ph = GetMobByID(ID.mob.TAISAIJIN_PH[phIndex]);
 
-    local Taisaijin = 17457216;
-    local Taisaijin_PH = GetServerVariable("Taisaijin_PH");
+    -- allow current placeholder to respawn
+    DisallowRespawn(mob:getID(), true);
+    DisallowRespawn(ph:getID(), false);
+    ph:setRespawnTime(GetMobRespawnTime(ph:getID()));
 
-    GetMobByID(Taisaijin):setLocalVar("ToD", os.time() + math.random(86400, 259200));
-    SetServerVariable("Taisaijin_PH", 0);
-    DeterMob(Taisaijin, true);
-    DeterMob(Taisaijin_PH, false);
-    SpawnMob(Taisaijin_PH, "", GetMobRespawnTime(Taisaijin_PH));
-
+    -- pick next placeholder
+    phIndex = (phIndex % 3) + 1;
+    ph = GetMobByID(ID.mob.TAISAIJIN_PH[phIndex]);
+    ph:setLocalVar("timeToGrow", os.time() + math.random(86400,259200)); -- 1 to 3 days
+    ph:setLocalVar("phIndex",phIndex);
 end;

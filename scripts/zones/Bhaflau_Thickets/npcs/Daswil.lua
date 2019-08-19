@@ -2,70 +2,73 @@
 -- Area: Bhaflau Thickets
 --  NPC: Daswil
 -- Type: Assault
--- @pos -208.720 -12.889 -779.713 52
+-- !pos -208.720 -12.889 -779.713 52
 -----------------------------------
-package.loaded["scripts/zones/Bhaflau_Thickets/TextIDs"] = nil;
------------------------------------
-require("scripts/zones/Bhaflau_Thickets/TextIDs");
-require("scripts/globals/missions");
+require("scripts/globals/settings");
+require("scripts/globals/status");
 require("scripts/globals/keyitems");
-
------------------------------------
--- onTrade Action
+require("scripts/globals/missions");
+require("scripts/globals/quests");
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
 end;
 
------------------------------------
--- onTrigger Action
------------------------------------
-
 function onTrigger(player,npc)
+    local toauMission = player:getCurrentMission(TOAU);
+    local beginnings = player:getQuestStatus(AHT_URHGAN,dsp.quest.id.ahtUrhgan.BEGINNINGS);
 
-    local IPpoint = player:getCurrency("imperial_standing");
-
-    if (player:getCurrentMission(TOAU) == IMMORTAL_SENTRIES) then
-        if (player:hasKeyItem(SUPPLIES_PACKAGE)) then
+    -- IMMORTAL SENTRIES
+    if (toauMission == dsp.mission.id.toau.IMMORTAL_SENTRIES) then
+        if (player:hasKeyItem(dsp.ki.SUPPLIES_PACKAGE)) then
             player:startEvent(5);
         elseif (player:getVar("AhtUrganStatus") == 1) then
             player:startEvent(6);
-        end
-    elseif (player:getCurrentMission(TOAU) >= PRESIDENT_SALAHEEM) then
-        if (player:hasKeyItem(MAMOOL_JA_ASSAULT_ORDERS) and player:hasKeyItem(ASSAULT_ARMBAND) == false) then
+        end;
+
+    -- BEGINNINGS
+    elseif (beginnings == QUEST_ACCEPTED) then
+        if (not player:hasKeyItem(dsp.ki.BRAND_OF_THE_SKYSERPENT)) then
+            player:startEvent(8); -- brands you
+        else
+            player:startEvent(9); -- mortals were meant to seek power
+        end;
+
+    -- ASSAULT
+    elseif (toauMission >= dsp.mission.id.toau.PRESIDENT_SALAHEEM) then
+        local IPpoint = player:getCurrency("imperial_standing");
+        if (player:hasKeyItem(dsp.ki.MAMOOL_JA_ASSAULT_ORDERS) and player:hasKeyItem(dsp.ki.ASSAULT_ARMBAND) == false) then
             player:startEvent(512,50,IPpoint);
         else
             player:startEvent(7);
-            -- player:delKeyItem(ASSAULT_ARMBAND);
-        end
+            -- player:delKeyItem(dsp.ki.ASSAULT_ARMBAND);
+        end;
+
+    -- DEFAULT DIALOG
     else
         player:startEvent(4);
-    end
-
+    end;
 end;
-
------------------------------------
--- onEventUpdate
------------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
 end;
 
------------------------------------
--- onEventFinish
------------------------------------
-
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+    -- IMMORTAL SENTRIES
     if (csid == 5 and option == 1) then
-        player:delKeyItem(SUPPLIES_PACKAGE);
+        player:delKeyItem(dsp.ki.SUPPLIES_PACKAGE);
         player:setVar("AhtUrganStatus",1);
+
+    -- BEGINNINGS
+    elseif (csid == 8) then
+        player:addKeyItem(dsp.ki.BRAND_OF_THE_SKYSERPENT);
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED,dsp.ki.BRAND_OF_THE_SKYSERPENT);
+
+    -- ASSAULT
     elseif (csid == 512 and option == 1) then
-       player:delCurrency("imperial_standing", 50);
-       player:addKeyItem(ASSAULT_ARMBAND);
-       player:messageSpecial(KEYITEM_OBTAINED,ASSAULT_ARMBAND);
-    end
+        player:delCurrency("imperial_standing", 50);
+        player:addKeyItem(dsp.ki.ASSAULT_ARMBAND);
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED,dsp.ki.ASSAULT_ARMBAND);
+    end;
 end;

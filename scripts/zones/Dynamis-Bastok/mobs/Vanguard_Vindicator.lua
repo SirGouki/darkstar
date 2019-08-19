@@ -1,31 +1,17 @@
 -----------------------------------
--- Area: Dynamis Bastok
---  MOB: Vanguard Vindicator
+-- Area: Dynamis - Bastok
+--  Mob: Vanguard Vindicator
 -----------------------------------
-
-require("scripts/globals/dynamis");
-
------------------------------------
--- onMobSpawn Action
+mixins =
+{
+    require("scripts/mixins/dynamis_beastmen"),
+    require("scripts/mixins/job_special")
+}
 -----------------------------------
 
 function onMobSpawn(mob)
-end;
-
------------------------------------
--- onMobEngaged
------------------------------------
-
-function onMobEngaged(mob,target)
-end;
-
------------------------------------
--- onMobDeath
------------------------------------
+    mob:setLocalVar("dynamis_currency", 1455)
+end
 
 function onMobDeath(mob, player, isKiller)
-    if (mob:getID() == 17539300 and alreadyReceived(player,7) == false) then
-        player:addTimeToDynamis(10);
-        addDynamisList(player,64);
-    end
-end;
+end

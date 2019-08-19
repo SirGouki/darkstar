@@ -109,7 +109,7 @@ bool CPetController::TryDeaggro()
 
     // target is no longer valid, so wipe them from our enmity list
     if (PTarget->isDead() ||
-        PTarget->animation == ANIMATION_CHOCOBO ||
+        PTarget->isMounted() ||
         PTarget->loc.zone->GetID() != PPet->loc.zone->GetID() ||
         PPet->StatusEffectContainer->GetConfrontationEffect() != PTarget->StatusEffectContainer->GetConfrontationEffect())
     {
@@ -118,10 +118,11 @@ bool CPetController::TryDeaggro()
     return false;
 }
 
-void CPetController::Ability(uint16 targid, uint16 abilityid)
+bool CPetController::Ability(uint16 targid, uint16 abilityid)
 {
     if (PPet->PAI->CanChangeState())
     {
-        PPet->PAI->Internal_Ability(targid, abilityid);
+        return PPet->PAI->Internal_Ability(targid, abilityid);
     }
+    return false;
 }

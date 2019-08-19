@@ -1,35 +1,17 @@
 -----------------------------------
--- Area: Dynamis San d'Oria
---  MOB: Voidstreaker Butchnotch
+-- Area: Dynamis - San d'Oria
+--  Mob: Voidstreaker Butchnotch
 -----------------------------------
-
-require("scripts/globals/dynamis");
-
------------------------------------
--- onMobSpawn Action
+mixins =
+{
+    require("scripts/mixins/dynamis_beastmen"),
+    require("scripts/mixins/job_special")
+}
 -----------------------------------
 
 function onMobSpawn(mob)
-end;
-
------------------------------------
--- onMobEngaged
------------------------------------
-
-function onMobEngaged(mob,target)
-end;
-
------------------------------------
--- onMobDeath
------------------------------------
+    mob:setLocalVar("dynamis_currency", 1452)
+end
 
 function onMobDeath(mob, player, isKiller)
-    if (alreadyReceived(player,7) == false) then
-        player:addTimeToDynamis(30);
-        addDynamisList(player,64);
-        SpawnMob(17535385); -- 145
-        SpawnMob(17535386); -- 146
-        SpawnMob(17535387); -- 147
-        SpawnMob(17535389); -- 149
-    end
-end;
+end

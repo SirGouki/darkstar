@@ -29,79 +29,18 @@
 
 #include "../packets/entity_update.h"
 
-
 /************************************************************************
-*																		*
-*  Таймер для закрывания дверей.										*
-*																		*
-*  Вообще можно подумать о реализации универсального таймера для		*
-*  изменения анимации NPC, а не только закрытия дверей.					*
-*																		*
-************************************************************************/
-
-int32 close_door(time_point tick, CTaskMgr::CTask* PTask)
-{
-	//DSP_DEBUG_BREAK_IF(PTask->m_data == nullptr)
-    //DSP_DEBUG_BREAK_IF(((CBaseEntity*)PTask->m_data)->objtype != TYPE_NPC);
-
-	CNpcEntity* PNpc = (CNpcEntity*)PTask->m_data;
-
-	PNpc->animation = ANIMATION_CLOSE_DOOR;
-	PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
-	return 0;
-}
-
-int32 open_door(time_point tick, CTaskMgr::CTask* PTask)
-{
-	CNpcEntity* PNpc = (CNpcEntity*)PTask->m_data;
-
-	PNpc->animation = ANIMATION_OPEN_DOOR;
-	PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
-	return 0;
-}
-
-/************************************************************************
-*																		*
-*	Make an entity disappear											*
-*																		*
-************************************************************************/
-
-int32 disappear_npc(time_point tick, CTaskMgr::CTask* PTask)
-{
-	CNpcEntity* PNpc = (CNpcEntity*)PTask->m_data;
-
-	PNpc->status = STATUS_DISAPPEAR;
-	PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_DESPAWN, UPDATE_NONE));
-	return 0;
-}
-
-/************************************************************************
-*																		*
-*	Make an entity reappear												*
-*																		*
-************************************************************************/
-
-int32 reappear_npc(time_point tick, CTaskMgr::CTask* PTask)
-{
-	CNpcEntity* PNpc = (CNpcEntity*)PTask->m_data;
-
-	PNpc->status = STATUS_NORMAL;
-	PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
-	return 0;
-}
-
-/************************************************************************
-*																		*
-*																		*
-*																		*
+*                                                                       *
+*                                                                       *
+*                                                                       *
 ************************************************************************/
 
 CNpcEntity::CNpcEntity()
 {
-	objtype = TYPE_NPC;
-	look.face = 0x32;
+    objtype = TYPE_NPC;
+    look.face = 0x32;
         widescan = 1;
-	allegiance = ALLEGIANCE_MOB;
+    allegiance = ALLEGIANCE_MOB;
     PAI = std::make_unique<CAIContainer>(this);
 }
 
@@ -110,23 +49,14 @@ CNpcEntity::~CNpcEntity()
 
 }
 
-void CNpcEntity::HideModel(bool hide)
+uint32 CNpcEntity::getEntityFlags()
 {
-    if (hide)
-    {
-        // Copied over from mobentity
-        // i'm not sure if this is right
-        m_flags |= 0x80;
-    }
-    else
-    {
-        m_flags &= ~0x80;
-    }
+    return m_flags;
 }
 
-bool CNpcEntity::IsModelHidden()
+void CNpcEntity::setEntityFlags(uint32 EntityFlags)
 {
-    return (m_flags & 0x80) == 0x80;
+    m_flags = EntityFlags;
 }
 
 void CNpcEntity::HideHP(bool hide)

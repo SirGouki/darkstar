@@ -1,35 +1,29 @@
 -----------------------------------
 -- Area: Xarcabard
---  NM:  Boreal Tiger
+--   NM: Boreal Tiger
 -- Involved in Quests: Atop the Highest Mountains
--- @pos 341 -29 370 112
+-- !pos 341 -29 370 112
 -----------------------------------
-
-require("scripts/globals/keyitems");
-require("scripts/globals/quests");
-
------------------------------------
--- onMobSpawn
+local ID = require("scripts/zones/Xarcabard/IDs")
+require("scripts/globals/keyitems")
+require("scripts/globals/settings")
+require("scripts/globals/quests")
 -----------------------------------
 
 function onMobSpawn(mob)
     -- Failsafe to make sure NPC is down when NM is up
-    local npc = GetNPCByID(17236304);
-    if (OldSchoolG2 == true) then
-        npc:showNPC(1);
+    if OldSchoolG2 then
+        GetNPCByID(ID.npc.BOREAL_TIGER_QM):showNPC(0)
     end
-end;
-
------------------------------------
--- onMobDeath
------------------------------------
+end
 
 function onMobDeath(mob, player, isKiller)
-
-    local npc = GetNPCByID(17236304);
-    if (player:getQuestStatus(JEUNO,ATOP_THE_HIGHEST_MOUNTAINS) == QUEST_ACCEPTED and player:hasKeyItem(ROUND_FRIGICITE) == false) then
-        player:messageSpecial(BLOCKS_OF_ICE);
+    if OldSchoolG2 then
+        -- show ??? for desired duration
+        -- notify people on the quest who need the KI
+        GetNPCByID(ID.npc.BOREAL_TIGER_QM):showNPC(FrigiciteDuration)
+        if player:getQuestStatus(JEUNO, dsp.quest.id.jeuno.ATOP_THE_HIGHEST_MOUNTAINS) == QUEST_ACCEPTED and not player:hasKeyItem(dsp.ki.ROUND_FRIGICITE) then
+            player:messageSpecial(ID.text.BLOCKS_OF_ICE)
+        end
     end
-    npc:showNPC(FrigiciteDuration);
-
-end;
+end

@@ -1,43 +1,19 @@
 -----------------------------------
---  Area: Aht Urgan Whitegate
---   NPC: Chat Manual
---  Type: Tutorial NPC
--- @zone: 50
---  @pos -5.440 0 -11.449
------------------------------------
-package.loaded["scripts/zones/Aht_Urgan_Whitegate/TextIDs"] = nil;
------------------------------------
-
------------------------------------
--- onTrade Action
+-- Area: Aht Urgan Whitegate
+--  NPC: Chat Manual
+-- Type: Tutorial NPC
+-- !pos -5.440 0 -11.449 50
 -----------------------------------
 
 function onTrade(player,npc,trade)
-end;
-
------------------------------------
--- onTrigger Action
------------------------------------
+end
 
 function onTrigger(player,npc)
-    player:startEvent(0x17da);
-end;
-
------------------------------------
--- onEventUpdate
------------------------------------
+    player:startEvent(6106)
+end
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
-end;
-
------------------------------------
--- onEventFinish
------------------------------------
+end
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
-end;
-
+end
