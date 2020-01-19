@@ -4287,7 +4287,7 @@ INSERT INTO `item_basic` VALUES (4541,0,'bottle_of_goblin_drink','goblin_drink',
 INSERT INTO `item_basic` VALUES (4542,0,'bowl_of_brain_stew','brain_stew',1,1580,55,0,2220);
 INSERT INTO `item_basic` VALUES (4543,0,'goblin_mushpot','goblin_mushpot',1,1580,54,0,490);
 INSERT INTO `item_basic` VALUES (4544,0,'bowl_of_mushroom_stew','mushroom_stew',1,1580,55,0,1142);
-INSERT INTO `item_basic` VALUES (4545,0,'bunch_of_gysahl_greens','gysahl_greens',12,1548,48,0,17);
+INSERT INTO `item_basic` VALUES (4545,0,'bunch_of_gysahl_greens','gysahl_greens',99,1548,48,0,17);
 INSERT INTO `item_basic` VALUES (4546,0,'piece_of_raisin_bread','raisin_bread',12,1548,56,0,344);
 INSERT INTO `item_basic` VALUES (4547,0,'bowl_of_boiled_cockatrice','boiled_cockatrice',1,1580,52,0,464);
 INSERT INTO `item_basic` VALUES (4548,0,'plate_of_coeurl_saute','coeurl_saute',1,1580,52,0,628);        -- https://www.bg-wiki.com/bg/Coeurl_Saute
@@ -5391,7 +5391,7 @@ INSERT INTO `item_basic` VALUES (5719,0,'dish_of_spaghetti_marinara','marinara',
 INSERT INTO `item_basic` VALUES (5720,0,'dish_of_spaghetti_marinara_+1','marinara_+1',12,1548,56,0,1871);
 INSERT INTO `item_basic` VALUES (5721,0,'plate_of_crab_sushi','crab_sushi',12,1548,53,0,91);
 INSERT INTO `item_basic` VALUES (5722,0,'plate_of_crab_sushi_+1','crab_sushi_+1',12,1548,53,0,165);
-INSERT INTO `item_basic` VALUES (5724,0,'pinch_of_pungent_powder','pungent_powder',12,1548,33,0,0);
+INSERT INTO `item_basic` VALUES (5724,0,'pinch_of_pungent_powder','pungent_powder',99,1548,33,0,0);
 INSERT INTO `item_basic` VALUES (5725,0,'goshikitenge','goshikitenge',99,1548,63,0,2);
 INSERT INTO `item_basic` VALUES (5726,0,'zucchini','zucchini',12,1548,59,0,126);
 INSERT INTO `item_basic` VALUES (5727,0,'serving_of_zaru_soba','zaru_soba',12,1548,56,0,473);
@@ -5611,7 +5611,7 @@ INSERT INTO `item_basic` VALUES (5941,0,'bar_of_campfire_chocolate','campfire_ch
 INSERT INTO `item_basic` VALUES (5942,0,'piece_of_cascade_candy','cascade_candy',12,1548,57,0,0);
 INSERT INTO `item_basic` VALUES (5943,0,'strip_of_smoked_mackerel','smoked_mackerel',12,1548,53,0,0);
 INSERT INTO `item_basic` VALUES (5944,0,'bottle_of_frontier_soda','frontier_soda',1,1548,58,0,0);
-INSERT INTO `item_basic` VALUES (5945,0,'pinch_of_prize_powder','prize_powder',12,1548,33,0,0);
+INSERT INTO `item_basic` VALUES (5945,0,'pinch_of_prize_powder','prize_powder',99,1548,33,0,0);
 INSERT INTO `item_basic` VALUES (5946,0,'frayed_sack_of_deviousness','frayed_sack_(d)',99,13916,0,1,0);
 INSERT INTO `item_basic` VALUES (5947,0,'frayed_sack_of_liminality','frayed_sack_(l)',99,13916,0,1,0);
 INSERT INTO `item_basic` VALUES (5948,0,'black_prawn','black_prawn',12,1548,51,1,0);
@@ -5663,12 +5663,12 @@ INSERT INTO `item_basic` VALUES (5997,0,'shen','shen',1,1544,51,1,0);
 INSERT INTO `item_basic` VALUES (5998,0,'bowl_of_adoulinian_soup','adoulinian_soup',1,1580,55,1,0);
 INSERT INTO `item_basic` VALUES (5999,0,'bowl_of_adoulinian_soup_+1','adoulinian_soup_+1',1,1580,55,1,0);
 INSERT INTO `item_basic` VALUES (6001,0,'clotflagration','clotflagration',12,1548,59,1,0);
-INSERT INTO `item_basic` VALUES (6002,0,'trailblazing_pickaxe','trbl._pickaxe',12,29780,0,1,0);
-INSERT INTO `item_basic` VALUES (6003,0,'trailblazing_pickaxe_+1','trbl._pickaxe_+1',12,29780,0,1,0);
-INSERT INTO `item_basic` VALUES (6004,0,'trailblazing_hatchet','trbl._hatchet',12,29780,0,1,0);
-INSERT INTO `item_basic` VALUES (6005,0,'trailblazing_hatchet_+1','trbl._hatchet_+1',12,29780,0,1,0);
-INSERT INTO `item_basic` VALUES (6006,0,'trailblazing_sickle','trbl._sickle',12,29780,0,1,0);
-INSERT INTO `item_basic` VALUES (6007,0,'trailblazing_sickle_+1','trbl._sickle_+1',12,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6002,0,'trailblazing_pickaxe','trbl._pickaxe',99,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6003,0,'trailblazing_pickaxe_+1','trbl._pickaxe_+1',99,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6004,0,'trailblazing_hatchet','trbl._hatchet',99,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6005,0,'trailblazing_hatchet_+1','trbl._hatchet_+1',99,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6006,0,'trailblazing_sickle','trbl._sickle',99,29780,0,1,0);
+INSERT INTO `item_basic` VALUES (6007,0,'trailblazing_sickle_+1','trbl._sickle_+1',99,29780,0,1,0);
 INSERT INTO `item_basic` VALUES (6008,0,'piece_of_copse_candy','copse_candy',12,30296,0,1,0);
 INSERT INTO `item_basic` VALUES (6009,0,'bowl_of_mog_pudding','mog_pudding',12,1548,57,1,0);
 INSERT INTO `item_basic` VALUES (6010,0,'sakura_biscuit','sakura_biscuit',99,1548,57,1,0);
@@ -6113,7 +6113,7 @@ INSERT INTO `item_basic` VALUES (6488,0,'frayed_sack_of_opulence','frayed_sack_(
 INSERT INTO `item_basic` VALUES (6489,0,'far_east_puffer','far_east_puffer',1,1544,51,0,0);
 INSERT INTO `item_basic` VALUES (6498,0,'bunch_of_fortune_fruits','fortune_fruits',12,30296,0,0,0);
 INSERT INTO `item_basic` VALUES (6499,0,'patio_design_plan_document','patio_design_plans',1,63040,0,0,0);
-INSERT INTO `item_basic` VALUES (6500,0,'abdhaljs_seal','abdhaljs_seal',12,30272,0,0,0);
+INSERT INTO `item_basic` VALUES (6500,0,'abdhaljs_seal','abdhaljs_seal',99,30272,0,0,0);
 INSERT INTO `item_basic` VALUES (6506,0,'pyre_crystal','pyre_crystal',12,29248,0,0,0);
 INSERT INTO `item_basic` VALUES (6507,0,'frost_crystal','frost_crystal',12,29248,0,0,0);
 INSERT INTO `item_basic` VALUES (6508,0,'vortex_crystal','vortex_crystal',12,29248,0,0,0);
@@ -6143,9 +6143,9 @@ INSERT INTO `item_basic` VALUES (6531,0,'black_hourglass','black_hourglass',1,63
 INSERT INTO `item_basic` VALUES (6532,0,'pluton_coffer','coffer_(pluton)',99,30296,0,0,0);
 INSERT INTO `item_basic` VALUES (6533,0,'beitetsu_coffer','coffer_(beitetsu)',99,30296,0,0,0);
 INSERT INTO `item_basic` VALUES (6534,0,'rift_boulder_coffer','coffer_(boulder)',99,30296,0,0,0);
-INSERT INTO `item_basic` VALUES (6535,0,'pinch_of_pungent_powder_ii','pungent_powder_ii',12,1548,0,0,0);
+INSERT INTO `item_basic` VALUES (6535,0,'pinch_of_pungent_powder_ii','pungent_powder_ii',99,1548,0,0,0);
 INSERT INTO `item_basic` VALUES (6536,0,'new_years_pouch','new_years_pouch',1,5736,0,0,0);
-INSERT INTO `item_basic` VALUES (6537,0,'pinch_of_pungent_powder_iii','pungent_powder_iii',12,1548,0,0,0);
+INSERT INTO `item_basic` VALUES (6537,0,'pinch_of_pungent_powder_iii','pungent_powder_iii',99,1548,0,0,0);
 INSERT INTO `item_basic` VALUES (6538,0,'altanas_repast','altanas_repast',1,1580,0,0,0);
 INSERT INTO `item_basic` VALUES (6539,0,'altanas_repast_+1','altanas_repast_+1',1,1576,0,0,0);
 INSERT INTO `item_basic` VALUES (6540,0,'altanas_repast_+2','altanas_repast_+2',1,1576,0,0,0);
