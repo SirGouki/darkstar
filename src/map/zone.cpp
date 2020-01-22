@@ -626,9 +626,9 @@ void CZone::IncreaseZoneCounter(CCharEntity* PChar)
 
     CharZoneIn(PChar);
 
-    //update mobs TOTD because zones don't tick empty
+    //update Zone TOTD
     TIMETYPE VanadielTOTD = CVanaTime::getInstance()->GetCurrentTOTD();
-    m_zoneEntities->TOTDChange(VanadielTOTD);
+    TOTDChange(VanadielTOTD);
 }
 
 /************************************************************************
