@@ -20,6 +20,6 @@ function onUseAbility(player,target,ability)
         effect:setPower(effect:getPower() + power)
         player:addMod(dsp.mod.ATTP,power)
     else
-        player:addStatusEffect(dsp.effect.BOOST,power,1,180)
+        player:addStatusEffect(dsp.effect.BOOST,power,0,180)
     end
 end
