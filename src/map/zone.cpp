@@ -624,12 +624,11 @@ void CZone::IncreaseZoneCounter(CCharEntity* PChar)
         createZoneTimer();
     }
 
-    //update mobs based on spawn type
+    CharZoneIn(PChar);
+
+    //update mobs TOTD because zones don't tick empty
     TIMETYPE VanadielTOTD = CVanaTime::getInstance()->GetCurrentTOTD();
     m_zoneEntities->TOTDChange(VanadielTOTD);
-    
-
-    CharZoneIn(PChar);
 }
 
 /************************************************************************
