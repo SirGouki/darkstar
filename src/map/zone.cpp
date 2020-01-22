@@ -627,8 +627,7 @@ void CZone::IncreaseZoneCounter(CCharEntity* PChar)
     CharZoneIn(PChar);
 
     //update Zone TOTD
-    TIMETYPE VanadielTOTD = CVanaTime::getInstance()->GetCurrentTOTD();
-    TOTDChange(VanadielTOTD);
+    TOTDChange(CVanaTime::getInstance()->GetCurrentTOTD());
 }
 
 /************************************************************************
