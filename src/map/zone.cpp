@@ -625,9 +625,6 @@ void CZone::IncreaseZoneCounter(CCharEntity* PChar)
     }
 
     CharZoneIn(PChar);
-
-    //update Zone TOTD
-    TOTDChange(CVanaTime::getInstance()->GetCurrentTOTD());
 }
 
 /************************************************************************
